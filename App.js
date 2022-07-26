@@ -7,9 +7,21 @@ import {
   View,
 } from 'react-native';
 
-const RedSquare = () => {
+const RedSquare = (props) => {
+  const positionStyle = props.isClone ? { top: 393.33334 } : undefined;
+
   return (
-    <View ref={this.elementToBeClonedRef} style={{ width: 50, height: 50, backgroundColor: 'red' }}></View>
+    <View 
+      ref={this.elementToBeClonedRef} 
+      style={[{ width: 50, height: 50, backgroundColor: 'red' }, positionStyle]}
+      onLayout={(event) => {
+        if (!props.isClone) {
+          const { x, y, width, height } = event.nativeEvent.layout;
+          // alert(`x: ${x} y: ${y}`);
+        }
+      }}
+    >
+    </View>
   );
 };
 
@@ -47,7 +59,7 @@ class App extends React.Component {
           <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.5 }}>
           </View>
           <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
-              <RedSquare />
+              <RedSquare isClone={true} />
             </View>
         </Modal>
       </SafeAreaView>
