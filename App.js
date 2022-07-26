@@ -11,9 +11,38 @@ import {
 const windowWidth = Dimensions.get('window').width;
 
 const CustomTooltip = (props) => {
+  const tooltipBubbleHeight = 250;
+
+  function Triangle() {
+    const triangleStyle = {
+      top: props.top + (tooltipBubbleHeight / 2.0),
+      width: 0,
+      height: 0,
+      backgroundColor: 'transparent',
+      borderStyle: 'solid',
+      borderTopWidth: 0,
+      borderRightWidth: 10,
+      borderBottomWidth: 17,
+      borderLeftWidth: 10,
+      borderTopColor: 'transparent',
+      borderRightColor: 'transparent',
+      borderBottomColor: 'white',
+      borderLeftColor: 'transparent',
+      transform: [{ rotate: '180deg' }],
+    };
+
+    const trianglePosition = {
+      zIndex: 10000,
+      position: 'absolute',
+    };
+
+    return <View style={[triangleStyle, trianglePosition]}></View>;
+  }
+
   return (
     <View style={{ width: windowWidth, alignItems: 'center' }}>
       <View style={{ width: 250, height: 125, borderRadius: 10, backgroundColor: 'white', position: 'absolute', top: props.top }}></View>
+      <Triangle />
     </View>
   );
 };
