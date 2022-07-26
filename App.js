@@ -5,7 +5,10 @@ import {
   Modal,
   Button,
   View,
+  Dimensions,
 } from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
 
 const RedSquare = (props) => {
   const positionStyle = props.isClone ? { top: props.originalElementY, left: props.originalElementX } : undefined;
@@ -53,7 +56,6 @@ class App extends React.Component {
   render() {
     return(
       <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>PrototypeTooltip</Text>
         <RedSquare setOriginalElementX={this.setOriginalElementX} setOriginalElementY={this.setOriginalElementY} />
         <Button title="Show Tooltip" onPress={this.showTooltip} />
         <Modal
@@ -63,6 +65,10 @@ class App extends React.Component {
           <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.75 }}>
           </View>
           <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
+              <View style={{ width: windowWidth, alignItems: 'center' }}>
+                <View style={{ width: 250, height: 125, backgroundColor: 'white', position: 'absolute', top: this.state.originalElementY - 175 }}>
+              </View>
+              </View>
               <RedSquare 
                 isClone={true} 
                 originalElementX={this.state.originalElementX} 
