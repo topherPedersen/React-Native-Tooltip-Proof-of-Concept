@@ -24,6 +24,7 @@ class App extends React.Component {
     return(
       <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>PrototypeTooltip</Text>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }}></View>
         <Button title="Show Tooltip" onPress={this.showTooltip} />
         <Modal
           animationType="slide"
