@@ -10,6 +10,8 @@ import {
 const RedSquare = (props) => {
   const positionStyle = props.isClone ? { top: 393.33334, left: 170 } : undefined;
 
+  // TODO: Get position of original element programmatically
+
   return (
     <View 
       ref={this.elementToBeClonedRef} 
