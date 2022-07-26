@@ -19,11 +19,9 @@ const Tooltip = (props) => {
     <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.75 }}>
     </View>
     <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
-        {/* 
         <View style={{ width: windowWidth, alignItems: 'center' }}>
-          <View style={{ width: 250, height: 125, backgroundColor: 'white', position: 'absolute', top: this.state.originalElementY - 175 }}></View> 
+          <View style={{ width: 250, height: 125, backgroundColor: 'white', position: 'absolute', top: props.top - 175 }}></View> 
         </View> 
-        */}
         <View style={{ top: props.top, left: props.left }}>
           {props.children}
         </View>
