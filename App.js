@@ -7,9 +7,17 @@ import {
   View,
 } from 'react-native';
 
+const RedSquare = () => {
+  return (
+    <View ref={this.elementToBeClonedRef} style={{ width: 50, height: 50, backgroundColor: 'red' }}></View>
+  );
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.elementToBeClonedRef = React.createRef();
 
     this.state = {
       showModal: false,
@@ -24,10 +32,10 @@ class App extends React.Component {
     return(
       <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>PrototypeTooltip</Text>
-        <View style={{ width: 50, height: 50, backgroundColor: 'red' }}></View>
+        <RedSquare />
         <Button title="Show Tooltip" onPress={this.showTooltip} />
         <Modal
-          animationType="slide"
+          // animationType="slide"
           transparent={true}
           // transparent={false}
           visible={this.state.showModal}
@@ -36,9 +44,11 @@ class App extends React.Component {
             // this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={{ flex: 1, backgroundColor: 'black', opacity: 0.5 }}>
-
+          <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.5 }}>
           </View>
+          <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
+              <RedSquare />
+            </View>
         </Modal>
       </SafeAreaView>
     );
