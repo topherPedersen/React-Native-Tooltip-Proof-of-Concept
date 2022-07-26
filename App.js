@@ -80,24 +80,6 @@ class App extends React.Component {
         <Tooltip visible={this.state.showModal} top={this.state.originalElementY} left={this.state.originalElementX}>
           <RedSquare isClone={true} />
         </Tooltip>
-        {/* <Modal
-          transparent={true}
-          visible={this.state.showModal}
-        >
-          <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.75 }}>
-          </View>
-          <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
-              <View style={{ width: windowWidth, alignItems: 'center' }}>
-                <View style={{ width: 250, height: 125, backgroundColor: 'white', position: 'absolute', top: this.state.originalElementY - 175 }}>
-              </View>
-              </View>
-              <RedSquare 
-                isClone={true} 
-                originalElementX={this.state.originalElementX} 
-                originalElementY={this.state.originalElementY} 
-              />
-            </View>
-        </Modal> */}
       </SafeAreaView>
     );
   }
