@@ -114,8 +114,12 @@ class App extends React.Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        {/* <RedSquare /> is the component which we want to highlight with a tooltip */}
         <RedSquare setOriginalElementX={this.setOriginalElementX} setOriginalElementY={this.setOriginalElementY} />
         <Button title="Show Tooltip" onPress={this.showTooltip} />
+        {/* The <TooltipContainer /> should be a sibling component of the component which you would like to highlight */}
+        {/* Set the visibile prop equal to true to show the tooltip */}
+        {/* Pass a tooltipComponent as a prop, this is the actual tooltip bubble which will be displayed near the highlighted element */}
         <TooltipContainer 
           tooltipComponent={
             <CustomTooltip 
@@ -126,6 +130,8 @@ class App extends React.Component {
           top={this.state.originalElementY} 
           left={this.state.originalElementX}
         >
+          {/* Add the component you would like to highlight as a child of <TooltipContainer /> */}
+          {/* And make sure to set the isClone prop equal to true */}
           <RedSquare isClone={true} />
         </TooltipContainer>
       </SafeAreaView>
