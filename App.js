@@ -60,7 +60,7 @@ class App extends React.Component {
           transparent={true}
           visible={this.state.showModal}
         >
-          <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.5 }}>
+          <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.75 }}>
           </View>
           <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
               <RedSquare 
