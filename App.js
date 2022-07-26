@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 const RedSquare = (props) => {
-  const positionStyle = props.isClone ? { top: 393.33334 } : undefined;
+  const positionStyle = props.isClone ? { top: 393.33334, left: 170 } : undefined;
 
   return (
     <View 
