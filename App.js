@@ -13,7 +13,7 @@ const windowWidth = Dimensions.get('window').width;
 const CustomTooltip = (props) => {
   return (
     <View style={{ width: windowWidth, alignItems: 'center' }}>
-      <View style={{ width: 250, height: 125, backgroundColor: 'white', position: 'absolute', top: props.top }}></View>
+      <View style={{ width: 250, height: 125, borderRadius: 10, backgroundColor: 'white', position: 'absolute', top: props.top }}></View>
     </View>
   );
 };
@@ -90,7 +90,7 @@ class App extends React.Component {
         <TooltipContainer 
           tooltipComponent={
             <CustomTooltip 
-              top={this.state.originalElementY - 175} 
+              top={this.state.originalElementY - 160} 
             />
           } 
           visible={this.state.showModal} 
