@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 
 const CustomTooltip = (props) => {
   const tooltipBubbleHeight = 250;
@@ -53,10 +55,7 @@ const TooltipContainer = (props) => {
   };
 
   return (
-    <Modal
-      transparent={true}
-      visible={props.visible}
-    >
+    <View style={{ position: 'absolute', height: windowHeight, width: windowWidth }}>
       <View style={{ zIndex: 1000, flex: 1, backgroundColor: 'black', opacity: 0.75 }}>
       </View>
       <View style={{ position: 'absolute', opacity: 1.0, zIndex: 2000 }}>
@@ -65,7 +64,7 @@ const TooltipContainer = (props) => {
           {props.children}
         </View>
       </View>
-    </Modal>
+    </View>
   );
 };
 
